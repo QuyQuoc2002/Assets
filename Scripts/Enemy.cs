@@ -8,15 +8,16 @@ public class Enemy : MonoBehaviour
 
     private Transform target;
     private int wavepointIndex = 0;
-    Vector2 Start1 = new Vector2(-8.2538f, -0.4851f);
-    Vector2 Start2 = new Vector2(8.21f, -1.96f);
-    Vector2 Start3 = new Vector2(-4.7f, 4.22f);
+    Vector2 Start1;
+    Vector2 Start2;
+    Vector2 Start3;
     Vector2 flag;
-
-
 
     void Start()
     {
+        Start1 = GameObject.Find("Start1").transform.position;
+        Start2 = GameObject.Find("Start2").transform.position;
+        Start3 = GameObject.Find("Start3").transform.position;
         flag = transform.position;
         if (Vector2.Distance(transform.position, Start1) <= 0.2f)
         {
@@ -38,7 +39,6 @@ public class Enemy : MonoBehaviour
     {
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
         if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             if (Vector2.Distance(flag, Start1) <= 0.2f)
