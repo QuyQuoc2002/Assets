@@ -6,6 +6,9 @@ public abstract class Enemy : MonoBehaviour
 {
     
     public float speed;
+    public float enemyHealth;
+    public int killReward;
+    public int damage;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -57,7 +60,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    void GetNextWaypoint1()
+    public void GetNextWaypoint1()
     {
         if (wavepointIndex >= Waypoints1.points.Length - 1)
         {
