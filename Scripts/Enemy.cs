@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    private float speed = 2f;
+    
+    public float speed;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -13,7 +14,7 @@ public class Enemy : MonoBehaviour
     Vector2 Start3;
     Vector2 flag;
 
-    void Start()
+    public virtual void Start()
     {
         Start1 = GameObject.Find("Start1").transform.position;
         Start2 = GameObject.Find("Start2").transform.position;
@@ -35,7 +36,7 @@ public class Enemy : MonoBehaviour
         //target = Waypoints2.points[0];
     }
 
-    void Update()
+    public virtual void Update()
     {
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
@@ -91,4 +92,6 @@ public class Enemy : MonoBehaviour
         wavepointIndex++;
         target = Waypoints3.points[wavepointIndex];
     }
+
+    
 }

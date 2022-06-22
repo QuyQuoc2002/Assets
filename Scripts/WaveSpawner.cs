@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public Transform[] enemyPrefab = new Transform[3];
 
     public Transform spawnPoint1;
     public Transform spawnPoint2;
@@ -44,13 +44,13 @@ public class WaveSpawner : MonoBehaviour
         switch (rand)
         {
             case 1:
-                Instantiate(enemyPrefab, spawnPoint1.position, spawnPoint1.rotation);
+                Instantiate(enemyPrefab[0], spawnPoint1.position, spawnPoint1.rotation);
                 break;
             case 2:
-                Instantiate(enemyPrefab, spawnPoint2.position, spawnPoint2.rotation);
+                Instantiate(enemyPrefab[1], spawnPoint2.position, spawnPoint2.rotation);
                 break;
             case 3:
-                Instantiate(enemyPrefab, spawnPoint3.position, spawnPoint3.rotation);
+                Instantiate(enemyPrefab[2], spawnPoint3.position, spawnPoint3.rotation);
                 break;
         }
         //rands.Add(rand);
